@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vue-front
+  labels:
+    app: vue-front
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vue-front
+  template:
+    metadata:
+      labels:
+        app: vue-front
+    spec:
+      containers:
+      - name: vue-front-container
+        image: yanishlali/vue-front:latest
+        ports:
+        - containerPort: 80
